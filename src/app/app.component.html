@@ -1,44 +1,64 @@
 <body class="flex flex-col min-h-screen">
-    <!-- Main Navbar -->
-    <nav class="sticky top-0 z-50 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-          
-          <!-- Logo/Brand -->
-          <div class="text-white font-extrabold text-2xl tracking-wide hover:scale-105 transition-transform">
-            SalonSpa 
-          </div>
-          
-          <!-- Navigation Links -->
-          <div class="flex space-x-6">
-            <a 
-              routerLink="/" 
-              routerLinkActive="text-yellow-300 underline" 
-              class="text-white hover:text-yellow-300 font-semibold transition duration-300"
-            >
-              Services
-            </a>
+  <!-- Main Navbar -->
+  <nav class="sticky top-0 z-50 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
       
-            <a 
-              routerLink="/cart" 
-              routerLinkActive="text-yellow-300 underline" 
-              class="text-white hover:text-yellow-300 font-semibold transition duration-300"
-            >
-              Cart
-            </a>
-          </div>
-      
-        </div>
-      </nav>
-      
-  
-    <!-- Main content -->
-    <main class="flex-grow p-4">
-      <router-outlet></router-outlet>
-    </main>
-  
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4">
-      &copy; 2025 Salon Booking. All rights reserved.
-    </footer>
-  </body>
-  
+      <!-- Logo/Brand -->
+      <div class="text-white font-extrabold text-2xl tracking-wide hover:scale-105 transition-transform">
+        SalonSpa
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="flex space-x-6 items-center">
+        <a 
+          routerLink="/" 
+          routerLinkActive="text-yellow-300 underline" 
+          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
+        >
+          Beauty Services
+        </a>
+
+        <a 
+          routerLink="/cart" 
+          routerLinkActive="text-yellow-300 underline" 
+          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
+        >
+          Cart
+        </a>
+
+        <!-- NEW: Sign In -->
+        <a 
+          routerLink="/signin" 
+          routerLinkActive="text-yellow-300 underline" 
+          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
+        >
+          Sign In
+        </a>
+
+        <!-- NEW: Sign Up -->
+        <a 
+          routerLink="/signup" 
+          routerLinkActive="text-yellow-300 underline" 
+          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
+        >
+          Sign Up
+        </a>
+        <button (click)="logout()" class="text-white hover:text-yellow-300 font-semibold transition duration-300">
+          Logout
+        </button>
+        
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="flex-1 flex justify-center items-center p-4">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-4">
+    &copy; 2025 Salon Booking. All rights reserved.
+  </footer>
+</body>

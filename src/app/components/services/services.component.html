@@ -1,50 +1,58 @@
 <!-- Small Banner Section -->
 <div class="w-full h-60 md:h-80 relative overflow-hidden rounded-lg shadow-md mb-8 animate-fadeIn">
-
-    <img 
-      src="assets/istockphoto-1856117770-612x612.jpg" 
-      alt="Salon Banner" 
-      class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-    />
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-      <h1 class="text-white text-3xl md:text-5xl font-bold">Pamper Yourself Today</h1>
-    </div>
+  <img 
+    src="assets/istockphoto-1856117770-612x612.jpg" 
+    alt="Salon Banner" 
+    class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+  />
+  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <h1 class="text-white text-3xl md:text-5xl font-bold">Pamper Yourself Today</h1>
   </div>
-  
-  <!-- Main Container -->
-  <div class="container mx-auto p-4">
-  
-    <!-- Category Tabs -->
-    <div class="flex justify-center mb-8 flex-wrap gap-4">
-      <button 
-        class="px-4 py-2 bg-gray-200 hover:bg-blue-500 hover:text-white rounded transition"
-        [ngClass]="{'bg-blue-500 text-white': selectedCategory === 'All'}"
-        (click)="selectedCategory = 'All'">
-        All
-      </button>
-      <button 
-        *ngFor="let cat of ['Hair', 'Skin', 'Nails', 'Spa', 'Bridal', 'Men']"
-        class="px-4 py-2 bg-gray-200 hover:bg-blue-500 hover:text-white rounded transition"
-        [ngClass]="{'bg-blue-500 text-white shadow-md': selectedCategory === cat}"
-        (click)="selectedCategory = cat">
-        {{ cat }}
-      </button>
-    </div>
-  
-    <!-- Services Grid -->
-    <div class="flex flex-wrap justify-center gap-8">
-      <div 
-        *ngFor="let service of filteredServices"
-        (click)="addToCart(service)"
-        class="w-64 p-6 bg-white shadow-md rounded-lg cursor-pointer transform transition-transform hover:scale-105 hover:shadow-xl animate-fadeIn"
-      >
-        <h2 class="text-xl font-semibold mb-2">{{ service.name }}</h2>
-        <p class="text-gray-600 mb-4">${{ service.price }}</p>
-        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+</div>
+
+<!-- Main Container -->
+<div class="container mx-auto p-4">
+
+  <!-- Category Tabs -->
+  <div class="flex justify-center mb-8 flex-wrap gap-4">
+    <button 
+      class="px-4 py-2 bg-gray-200 hover:bg-blue-500 hover:text-white rounded transition"
+      [ngClass]="{'bg-blue-500 text-white': selectedCategory === 'All'}"
+      (click)="selectedCategory = 'All'">
+      All
+    </button>
+    <button 
+      *ngFor="let cat of ['Hair', 'Skin', 'Nails', 'Spa', 'Bridal', 'Men']"
+      class="px-4 py-2 bg-gray-200 hover:bg-blue-500 hover:text-white rounded transition"
+      [ngClass]="{'bg-blue-500 text-white': selectedCategory === cat}"
+      (click)="selectedCategory = cat">
+      {{ cat }}
+    </button>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="flex flex-wrap justify-center gap-8">
+    <div 
+      *ngFor="let service of filteredServices"
+      class="w-72 p-6 bg-white shadow-md rounded-lg transform transition-transform hover:scale-105 hover:shadow-xl animate-fadeIn flex flex-col items-center text-center"
+    >
+      <h2 class="text-xl font-semibold mb-2">{{ service.name }}</h2>
+      <p class="text-gray-600 mb-4">${{ service.price }}</p>
+      
+      <div class="flex flex-col gap-2 w-full">
+        <button 
+          class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+          (click)="addToCart(service)">
           Add to Cart
+        </button>
+
+        <button 
+          class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+          (click)="selectService(service.name)">
+          Book Now
         </button>
       </div>
     </div>
-  
   </div>
-  
+
+</div>

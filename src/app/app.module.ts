@@ -10,6 +10,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { BookingFormComponent } from './components/booking-form/booking-form.component';
 import { SuccessComponent } from './components/success/success.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SuccessComponent } from './components/success/success.component';
     CartComponent,
     AppointmentComponent,
     BookingFormComponent,
-    SuccessComponent
+    SuccessComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
