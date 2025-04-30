@@ -28,8 +28,24 @@ export class ServicesComponent {
     { id: 17, name: 'Makeup - Party', price: 100, category: 'Bridal' },
     { id: 18, name: 'Bridal Makeup', price: 250, category: 'Bridal' },
     { id: 19, name: 'Beard Trim', price: 20, category: 'Men' },
-    { id: 20, name: 'Hair Treatment - Anti Dandruff', price: 70, category: 'Hair' },
-  ];
+    { id: 20, name: 'Haircut', price: 25, category: 'Men' },
+    { id: 21, name: 'Shave', price: 15, category: 'Men' },
+    { id: 22, name: 'Facial', price: 30, category: 'Men' },
+    { id: 23, name: 'Hair Color', price: 40, category: 'Men' },
+    { id: 24, name: 'Hair Treatment - Anti Dandruff', price: 70, category: 'Hair' },
+    { id: 25, name: 'Bridal Hair Styling', price: 150, category: 'Bridal' },
+    { id: 26, name: 'Pre-Wedding Skincare', price: 120, category: 'Bridal' },
+    { id: 27, name: 'Bridal Henna', price: 80, category: 'Bridal' },
+    { id: 28, name: 'Aromatherapy', price: 70, category: 'Spa' },
+    { id: 29, name: 'Hot Stone Massage', price: 100, category: 'Spa' },
+    { id: 30, name: 'Facial Treatment', price: 85, category: 'Spa' },
+    { id: 31, name: 'Gel Manicure', price: 45, category: 'Nails' },
+    { id: 32, name: 'Gel Pedicure', price: 50, category: 'Nails' },
+    { id: 33, name: 'Acrylic Nails', price: 60, category: 'Nails' },
+    { id: 34, name: 'Microdermabrasion', price: 70, category: 'Skin' },
+    { id: 35, name: 'Chemical Peel', price: 100, category: 'Skin' },
+    { id: 36, name: 'Hydrafacial', price: 120, category: 'Skin' }
+];
 
   selectedCategory: string = 'All';
 

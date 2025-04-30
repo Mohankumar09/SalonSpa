@@ -22,6 +22,14 @@
     </div>
 
     <div class="mb-4">
+      <label for="staff">Select Staff</label>
+      <select id="staff" [(ngModel)]="staff" name="staff">
+        <option *ngFor="let person of staffList" [value]="person">{{ person }}</option>
+      </select>
+    </div>
+    
+
+    <div class="mb-4">
       <input type="text" [(ngModel)]="service" name="service" readonly class="form-input" />
 
     </div>

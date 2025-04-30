@@ -10,7 +10,7 @@ export class AppointmentComponent {
   time: string = '';
   staff: string = '';
 
-  staffList = ['John', 'Emma', 'Mike', 'Sophia'];
+  staffList = ['John', 'Emma', 'Mike', 'Sophia', 'Olivia', 'Liam', 'Noah', 'Ava', 'Isabella', 'Mia'];
 
   constructor(private router: Router) {}
 
