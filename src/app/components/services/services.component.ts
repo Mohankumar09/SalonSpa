@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Service } from '../../models/service.model';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-services',
@@ -49,11 +50,17 @@ export class ServicesComponent {
 
   selectedCategory: string = 'All';
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(private cartService: CartService, private router: Router, private snackBar: MatSnackBar) {}
 
   addToCart(service: Service) {
     this.cartService.addService(service);
-  }
+    this.snackBar.open(`${service.name} added to cart!`, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: ['snackbar-success']
+    });
+  }  
 
   get filteredServices(): Service[] {
     if (this.selectedCategory === 'All') {

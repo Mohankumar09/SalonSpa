@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snackbar-success {
+    background-color: #ec4899; /* Tailwind's pink-500 */
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Smooth transition for the cart items */
+.cart-item-enter {
+    transition: all 0.3s ease-in;
+  }
+  

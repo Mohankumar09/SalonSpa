@@ -1,39 +1,50 @@
-<div class="flex flex-col items-center justify-center bg-pink-100">
-    <div class="bg-white p-8 rounded-lg shadow-md w-96">
-      <h2 class="text-2xl font-bold mb-6 text-center text-pink-500">Create an Account</h2>
-  
-      <form (ngSubmit)="onSignup()" class="space-y-4">
-        <input 
-          [(ngModel)]="name" 
-          name="name" 
-          class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-pink-300" 
-          placeholder="Name" 
-          required
-        >
-        <input 
-          [(ngModel)]="email" 
-          name="email" 
-          class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-pink-300" 
-          placeholder="Email" 
-          required
-        >
-        <input 
-          [(ngModel)]="password" 
-          name="password" 
-          type="password" 
-          class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-pink-300" 
-          placeholder="Password" 
-          required
-        >
-  
-        <button 
-          type="submit" 
-          class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full transition duration-300"
-        >
-          Sign Up
-        </button>
-      </form>
-  
+<div class="flex justify-center items-center min-h-screen bg-pink-100 px-4">
+  <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-xl w-full max-w-md">
+    <h2 class="text-3xl font-extrabold mb-8 text-center text-pink-500 tracking-wide">Create an Account</h2>
+
+    <form (ngSubmit)="onSignup()" class="space-y-5">
+      <input 
+        [(ngModel)]="name" 
+        name="name" 
+        placeholder="Full Name" 
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-700"
+      />
+
+      <input 
+        [(ngModel)]="email" 
+        name="email" 
+        type="email"
+        placeholder="Email Address" 
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-700"
+      />
+
+      <input 
+        [(ngModel)]="password" 
+        name="password" 
+        type="password" 
+        placeholder="Create Password" 
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-700"
+      />
+
+      <button 
+        type="submit" 
+        class="w-full bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 rounded-lg transition-all duration-300"
+      >
+        Sign Up
+      </button>
+    </form>
+
+    <div class="my-6 flex items-center justify-center">
+      <span class="text-gray-400 text-sm">or</span>
     </div>
+
+    <button (click)="continueWithGoogle()" 
+    class="w-full bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 rounded-lg transition-all duration-300">
+Continue with Google
+</button>
+
   </div>
-  
+</div>
