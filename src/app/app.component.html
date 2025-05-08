@@ -1,54 +1,65 @@
 <body class="flex flex-col min-h-screen">
   <!-- Main Navbar -->
-  <nav class="sticky top-0 z-50 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 p-4 shadow-lg">
+  <nav class="sticky top-0 z-50 bg-gray-900 p-4 shadow-xl">
     <div class="container mx-auto flex justify-between items-center">
       
       <!-- Logo/Brand -->
-      <div class="text-white font-extrabold text-2xl tracking-wide hover:scale-105 transition-transform">
-        SalonSpa
+      <div class="text-white font-extrabold text-3xl tracking-tight transform hover:scale-110 transition-transform duration-300">
+        <a href="/" class="flex items-center space-x-2">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>SalonSpa</span>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu (Mobile) -->
+      <div class="lg:hidden">
+        <button onclick="toggleMenu()" class="text-white focus:outline-none transform hover:scale-110 transition-transform duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
       </div>
 
       <!-- Navigation Links -->
-      <div class="flex space-x-6 items-center">
+      <div 
+        id="nav-menu"
+        class="hidden lg:flex lg:flex-row lg:space-x-8 lg:items-center lg:bg-transparent absolute top-full left-0 w-full bg-gray-900 p-6 shadow-2xl rounded-b-xl lg:static lg:w-auto lg:p-0 lg:shadow-none transition-all duration-500 ease-in-out"
+      >
+      <a 
+      href="/" 
+      class="text-white font-semibold text-lg px-4 py-2 rounded-full hover:bg-gray-700 hover:text-pink-500 transition-all duration-300"
+    >
+      Beauty Services
+    </a>
+    
+        
         <a 
-          routerLink="/" 
-          routerLinkActive="text-yellow-300 underline" 
-          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
-        >
-          Beauty Services
-        </a>
-
-        <a 
-          routerLink="/cart" 
-          routerLinkActive="text-yellow-300 underline" 
-          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
+          href="/cart" 
+          class="text-white font-semibold text-lg px-4 py-2 rounded-full hover:bg-gray-700 hover:text-pink-500 transition-all duration-300"
         >
           Cart
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-pink-300 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
         </a>
-
-        <!-- NEW: Sign In -->
-        <a 
-          routerLink="/signin" 
-          routerLinkActive="text-yellow-300 underline" 
-          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
-        >
-          Sign In
-        </a>
-
-        <!-- NEW: Sign Up -->
-        <a 
-          routerLink="/signup" 
-          routerLinkActive="text-yellow-300 underline" 
-          class="text-white hover:text-yellow-300 font-semibold transition duration-300"
-        >
-          Sign Up
-        </a>
-        <button (click)="logout()" class="text-white hover:text-yellow-300 font-semibold transition duration-300">
-          Logout
-        </button>
         
-      </div>
+        <a 
+          href="/signin" 
+          class=" text-white font-semibold text-lg px-4 py-2 rounded-full hover:bg-gray-700 hover:text-pink-500 transition-all duration-300 "
+        >
+          Login
+          <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-pink-300 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+        </a>
+        
 
+        
+        <button 
+        (click)="logout(); toggleMenu()" 
+        class="relative text-white font-semibold text-lg px-4 py-2 rounded-full bg-red-500 hover:bg-red-200 hover:text-pink-500 transition-all duration-300"
+      >
+        Logout
+      </button>
+    </div>
     </div>
   </nav>
 

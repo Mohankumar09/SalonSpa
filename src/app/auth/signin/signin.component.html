@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center min-h-screen bg-pink-100 px-4">
   <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-xl w-full max-w-md">
-    <h2 class="text-3xl font-extrabold mb-8 text-center text-pink-500 tracking-wide">Sign In</h2>
+    <h2 class="text-3xl font-extrabold mb-8 text-center text-pink-500 tracking-wide">Login</h2>
 
     <form (ngSubmit)="onSignIn()" class="space-y-5">
       <input 
@@ -11,7 +11,7 @@
         required
         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-700"
       />
-
+    
       <input 
         [(ngModel)]="password" 
         name="password" 
@@ -20,7 +20,17 @@
         required
         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-700"
       />
-
+    
+      <div class="flex justify-between items-center text-sm text-gray-600">
+        <label class="flex items-center">
+          <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe" class="mr-2" />
+          Remember Me
+        </label>
+        <button type="button" (click)="forgotPassword()" class="text-pink-500 hover:underline font-semibold">
+          Forgot Password?
+        </button>
+      </div>
+    
       <button 
         type="submit" 
         class="w-full bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold py-3 rounded-lg transition-all duration-300"
@@ -28,10 +38,14 @@
         Sign In
       </button>
     </form>
+    
 
     <p class="mt-6 text-center text-gray-600">
       Don't have an account?
-      <a routerLink="/signup" class="text-pink-500 hover:underline font-semibold">Sign Up</a>
+     <button (click)="goSignup()" class="text-pink-500 hover:underline font-semibold">
+  Go to Signup
+</button>
+
     </p>
   </div>
 </div>

@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-appointment',
-  templateUrl: './appointment.component.html'
+    imports: [CommonModule, FormsModule],
+    selector: 'app-appointment',
+    templateUrl: './appointment.component.html',
+    standalone: true
 })
 export class AppointmentComponent {
   date: string = '';

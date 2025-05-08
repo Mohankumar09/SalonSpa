@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,5 +16,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   /* Smooth transition for the cart items */
 .cart-item-enter {
     transition: all 0.3s ease-in;
+  }
+  
+  @media (max-width: 480px) {
+    .banner-small {
+      height: 200px !important;
+    }
   }
   

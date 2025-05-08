@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'; // ⬅️ Import this
+import { Router } from '@angular/router';
+
 import { CartService } from '../services/cart.service';
 import { Service } from '../../models/service.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html'
+  templateUrl: './cart.component.html',
+  standalone: true,
+  imports: [CommonModule], // ⬅️ Add this line
 })
 export class CartComponent implements OnInit {
   selectedServices: Service[] = [];
@@ -21,20 +25,25 @@ export class CartComponent implements OnInit {
       alert('No services selected!');
       return;
     }
-  
+
     const selectedServiceNames = this.selectedServices.map(service => service.name);
-  
+
     console.log('Selected service names:', selectedServiceNames);
-    console.log('Joining for URL:', selectedServiceNames.join(', '));
-  
-    this.router.navigate(['/appointment'], { 
-      queryParams: { services: selectedServiceNames.join(', ') }  // ✅ no manual encode
-    });
-  }
-  
+    console.log('Navigating with service:', selectedServiceNames.join(', '));
+
+    this.router.navigate(['/booking-form'], {
+      queryParams: {
+        service: encodeURIComponent(this.selectedServices.map(s => s.name).join(', '))
+      }
+    });       
+  }    
 
   removeFromCart(service: Service) {
     this.cartService.removeService(service);
     this.selectedServices = this.cartService.getServices();
+  }
+
+  goToHome() {
+    this.router.navigate(['/']);
   }
 }

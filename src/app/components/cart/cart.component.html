@@ -20,7 +20,7 @@
 
     <div class="text-center mt-8">
       <button (click)="proceedToAppointment()" class="bg-green-600 hover:bg-green-700 text-white text-lg px-6 py-3 rounded-md shadow-lg transition duration-300">
-        ✅ Proceed to Appointment
+         Proceed to Appointment
       </button>
     </div>
   </div>
@@ -28,7 +28,8 @@
   <ng-template #emptyCart>
     <div class="text-center text-gray-600 mt-12">
       <p class="mb-2 text-lg">Your cart is empty.</p>
-      <a routerLink="/" class="text-blue-600 hover:underline">Browse Services</a>
+      <button (click)="goToHome()" class="text-blue-600 hover:underline">Browse Services</button>
+
     </div>
   </ng-template>
 </div>

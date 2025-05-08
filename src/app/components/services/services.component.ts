@@ -3,10 +3,15 @@ import { CartService } from '../services/cart.service';
 import { Service } from '../../models/service.model';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common'; // Add this import
+import { FormsModule } from '@angular/forms'; // Assuming you're using this too
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, FormsModule], // Ensure CommonModule is included here
   selector: 'app-services',
-  templateUrl: './services.component.html'
+  templateUrl: './services.component.html',
+  styleUrls: ['./services.component.css'],
 })
 export class ServicesComponent {
   services: Service[] = [
@@ -52,7 +57,15 @@ export class ServicesComponent {
 
   constructor(private cartService: CartService, private router: Router, private snackBar: MatSnackBar) {}
 
+  ngOnInit() {
+    const isUserSignedUp = localStorage.getItem('userSignedUp'); // Check if the user is signed up
+    if (!isUserSignedUp) {
+      this.router.navigate(['/signup']); // Redirect to signup if not signed up
+    }
+  }
+
   addToCart(service: Service) {
+    console.log('Adding to cart:', service);
     this.cartService.addService(service);
     this.snackBar.open(`${service.name} added to cart!`, 'Close', {
       duration: 3000,

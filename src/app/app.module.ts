@@ -1,46 +1,45 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { CommonModule } from '@angular/common';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'; 
 
 import { ServicesComponent } from './components/services/services.component';
-import { CartComponent } from './components/cart/cart.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { BookingFormComponent } from './components/booking-form/booking-form.component';
 import { SuccessComponent } from './components/success/success.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AppComponent } from './app.component';
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ServicesComponent,
-    CartComponent,
-    AppointmentComponent,
-    BookingFormComponent,
-    SuccessComponent,
-    SigninComponent,
-    SignupComponent
-  ],
-  imports: [
-    BrowserModule,
+  imports: [ 
+    BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,   // This is for ngModel
+    FormsModule,
+    CommonModule,
     MatSnackBarModule,
-    CommonModule,  // This is for ngClass
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    RouterModule.forRoot([]),
+    ServicesComponent,
+    AppointmentComponent,
+    SuccessComponent,
+    BookingFormComponent,
+    SigninComponent,
+    SignupComponent,
+    AppComponent
   ],
+    
   providers: [
-    provideAnimationsAsync()
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth())
   ],
-  bootstrap: [AppComponent]
+  
+
 })
-export class AppModule { }
+export class AppModule {}
