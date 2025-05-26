@@ -10,28 +10,29 @@ pipeline {
     stage('Clone Repository') {
       steps {
         echo '📥 Cloning Angular project...'
-        git 'https://github.com/Mohankumar09/SalonSpa.git'
+        git branch: 'main', url: 'https://github.com/Mohankumar09/SalonSpa.git'
+
       }
     }
 
     stage('Install Dependencies') {
       steps {
         echo '📦 Installing npm dependencies...'
-        sh 'npm install'
+        bat 'npm install'
       }
     }
 
     stage('Build Angular App') {
       steps {
         echo '🏗️ Building the Angular project...'
-        sh 'npx ng build --configuration=production'
+        bat 'npx ng build --configuration=production'
       }
     }
 
     stage('Run Tests') {
       steps {
         echo '🧪 Running tests...'
-        sh 'npx ng test --watch=false --browsers=ChromeHeadless || true'
+        bat 'npx ng test --watch=false --browsers=ChromeHeadless || exit 0'
       }
     }
 
@@ -39,6 +40,13 @@ pipeline {
       steps {
         echo '🗂️ Archiving the dist folder...'
         archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true
+      }
+    }
+
+    stage('Simulate Deployment') {
+      steps {
+        echo '🚀 Simulating deployment to local folder...'
+        bat 'xcopy /E /I /Y dist\\netroot "C:\\my-deployment-folder"'
       }
     }
   }
