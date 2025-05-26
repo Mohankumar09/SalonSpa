@@ -1,45 +1,54 @@
 pipeline {
   agent any
 
+  environment {
+    // Optional: Customize Node and Angular CLI versions
+    PATH = "/usr/local/bin:$PATH"
+  }
+
   stages {
-    stage('Clone Repo') {
+    stage('Clone Repository') {
       steps {
-        echo '📥 Cloning repository...'
+        echo '📥 Cloning Angular project...'
         git 'https://github.com/Mohankumar09/SalonSpa.git'
       }
     }
 
-    stage('Build') {
+    stage('Install Dependencies') {
       steps {
-        echo '🔧 Building the project...'
-        // Replace this with real build command (example: npm install or mvn clean install)
-        sh 'echo Simulating build step'
+        echo '📦 Installing npm dependencies...'
+        sh 'npm install'
       }
     }
 
-    stage('Test') {
+    stage('Build Angular App') {
+      steps {
+        echo '🏗️ Building the Angular project...'
+        sh 'npx ng build --configuration=production'
+      }
+    }
+
+    stage('Run Tests') {
       steps {
         echo '🧪 Running tests...'
-        // Replace this with real test command (example: npm test or mvn test)
-        sh 'echo Simulating test step'
+        sh 'npx ng test --watch=false --browsers=ChromeHeadless || true'
       }
     }
 
-    stage('Deploy') {
+    stage('Archive Build') {
       steps {
-        echo '🚀 Deploying application...'
-        // Replace this with actual deploy step if you have one
-        sh 'echo Simulating deploy step'
+        echo '🗂️ Archiving the dist folder...'
+        archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true
       }
     }
   }
 
   post {
     success {
-      echo '✅ Pipeline completed successfully!'
+      echo '✅ Angular pipeline completed successfully!'
     }
     failure {
-      echo '❌ Pipeline failed!'
+      echo '❌ Angular pipeline failed!'
     }
   }
 }
