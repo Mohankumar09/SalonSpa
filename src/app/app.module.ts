@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 
 import { ServicesComponent } from './components/services/services.component';
+import { CartComponent } from './components/cart/cart.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { BookingFormComponent } from './components/booking-form/booking-form.component';
 import { SuccessComponent } from './components/success/success.component';
@@ -15,7 +16,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AppComponent } from './app.component';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideAuth, getAuth,} from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { environment } from '../environments/environment';
     ServicesComponent,
     AppointmentComponent,
     SuccessComponent,
+    CartComponent,
     BookingFormComponent,
     SigninComponent,
     SignupComponent,

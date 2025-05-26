@@ -16,6 +16,7 @@ export class CartService {
   }
 
   getServices(): Service[] {
+    console.log('Cart items:', this.selectedServices);
     return this.selectedServices;
   }
 

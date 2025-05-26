@@ -1,0 +1,45 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Clone Repo') {
+      steps {
+        echo '📥 Cloning repository...'
+        git 'https://github.com/Mohankumar09/SalonSpa.git'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        echo '🔧 Building the project...'
+        // Replace this with real build command (example: npm install or mvn clean install)
+        sh 'echo Simulating build step'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        echo '🧪 Running tests...'
+        // Replace this with real test command (example: npm test or mvn test)
+        sh 'echo Simulating test step'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo '🚀 Deploying application...'
+        // Replace this with actual deploy step if you have one
+        sh 'echo Simulating deploy step'
+      }
+    }
+  }
+
+  post {
+    success {
+      echo '✅ Pipeline completed successfully!'
+    }
+    failure {
+      echo '❌ Pipeline failed!'
+    }
+  }
+}

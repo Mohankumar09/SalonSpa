@@ -11,7 +11,9 @@ import { CommonModule } from '@angular/common'; // Import CommonModule for stand
   templateUrl: './app.component.html',
   template: `<router-outlet></router-outlet>`,
   imports: [RouterModule, CommonModule], // Add CommonModule here
+  providers: [Router], // Provide Router explicitly
 })
+
 export class AppComponent {
   constructor(private router: Router, private auth: Auth) {
     const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
